@@ -96,7 +96,7 @@ frame30 = pygame.image.load('frame30.png')
 clue_hitboxes = {
   1: (530, 345, 40, 40),
   2: (750, 420, 40, 40),
-  3: (200, 130, 40, 40),
+  3: (230, 130, 40, 40),
   4: (475, 350, 40, 40),
   5: (200, 340, 40, 40),
 }
@@ -235,7 +235,6 @@ def instructions():
     font = pygame.font.SysFont("georgia", 27)
     titleFont = pygame.font.SysFont("georgia", 32, bold=True)
 
-    #apology in advance for all the variables TT
     title = titleFont.render(("Instructions"), True, (black))
     line1 = font.render(("This game is an interactive murder mystery, where"), True, (black))
     line2 = font.render(("you, the player, are a crime investigator. Scott"), True, (black))

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emma Du — Personal Projects</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&display=swap">
+  </head>
+
+  <body>
+    <header class="hero">
+      <div class="name-tag">Emma Du</div>
+      <h1 class="hero-title">Personal Projects</h1>
+    </header>
+
+    <main class="wrap">
+      <section class="grid">
+        <a class="card" href="snowball-ski/" rel="noreferrer">
+          <div class="card-accent accent-yellow"></div>
+          <div class="card-body">
+            <h2>Snowball Ski</h2>
+            <p>
+              Java arcade game ported to the web. Dodge hazards, collect snowpiles, and race the timer.
+            </p>
+          </div>
+        </a>
+
+        <a class="card" href="mystery/" rel="noreferrer">
+          <div class="card-accent accent-pink"></div>
+          <div class="card-body">
+            <h2>The Chilling Case of Scott Maguire</h2>
+            <p>
+              Interactive mystery game ported from Pygame. Discover clues, review alibis, and pick the culprit.
+            </p>
+          </div>
+        </a>
+
+        <a class="card" href="#" target="_blank" rel="noreferrer">
+          <div class="card-accent accent-purple"></div>
+          <div class="card-body">
+            <h2>Project Link 3</h2>
+            <p>
+              Add a GitHub link, live demo link, or write-up link here.
+            </p>
+          </div>
+        </a>
+
+        <a class="card" href="#" target="_blank" rel="noreferrer">
+          <div class="card-accent accent-mint"></div>
+          <div class="card-body">
+            <h2>Project Link 4</h2>
+            <p>
+              You can also point to a PDF, blog post, or case study.
+            </p>
+          </div>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="year"></span> Emma Du</p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
