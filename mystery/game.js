@@ -60,9 +60,9 @@ let audioStarted = false;
 const clueHitboxes = [
   { id: 1, x: 530, y: 345, w: 40, h: 40 },
   { id: 2, x: 750, y: 420, w: 40, h: 40 },
-  { id: 3, x: 200, y: 130, w: 40, h: 40 },
+  { id: 3, x: 230, y: 170, w: 40, h: 40 },
   { id: 4, x: 475, y: 350, w: 40, h: 40 },
-  { id: 5, x: 200, y: 340, w: 40, h: 40 }
+  { id: 5, x: 230, y: 330, w: 40, h: 40 }
 ];
 
 const questions = [
@@ -488,13 +488,33 @@ function getClueOverlay(clueId) {
 
 function renderPlay(elapsed) {
   ctx.drawImage(images.gameBg, 0, 0, WIDTH, HEIGHT);
-  const remaining = Math.max(0, Math.ceil(300 - elapsed));
+  const remainingSeconds = Math.max(0, Math.ceil(180 - elapsed));
+  const minutes = Math.floor(remainingSeconds / 60);
+  const seconds = String(remainingSeconds % 60).padStart(2, "0");
+  const timeLabel = `${minutes}:${seconds}`;
   const drawTimer = () => {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-    ctx.fillRect(20, 18, 170, 34);
-    ctx.fillStyle = "#ffffff";
+    const timerText = timeLabel;
+    ctx.save();
     ctx.font = "bold 20px Georgia";
-    ctx.fillText(`Time: ${remaining}s`, 30, 42);
+    const paddingX = 12;
+    const paddingY = 8;
+    const metrics = ctx.measureText(timerText);
+    const boxW = metrics.width + paddingX * 2;
+    const boxH = 28 + paddingY;
+    const boxX = (WIDTH - boxW) / 2;
+    const boxY = 16;
+    ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+    ctx.fillRect(boxX, boxY, boxW, boxH);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    ctx.fillStyle = "#ffffff";
+    ctx.strokeStyle = "rgba(0, 0, 0, 0.65)";
+    ctx.lineWidth = 3;
+    const textX = WIDTH / 2;
+    const textY = boxY + 4;
+    ctx.strokeText(timerText, textX, textY);
+    ctx.fillText(timerText, textX, textY);
+    ctx.restore();
   };
   drawTimer();
 
@@ -528,7 +548,7 @@ function renderPlay(elapsed) {
     return;
   }
 
-  if (elapsed >= 300) {
+  if (elapsed >= 180) {
     gameState.allFound = false;
     setScreen("suspect", { allFound: false });
   }
