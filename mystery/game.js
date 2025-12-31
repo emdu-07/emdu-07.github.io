@@ -489,16 +489,20 @@ function getClueOverlay(clueId) {
 function renderPlay(elapsed) {
   ctx.drawImage(images.gameBg, 0, 0, WIDTH, HEIGHT);
   const remaining = Math.max(0, Math.ceil(300 - elapsed));
-  ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-  ctx.fillRect(20, 18, 170, 34);
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 20px Georgia";
-  ctx.fillText(`Time: ${remaining}s`, 30, 42);
+  const drawTimer = () => {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+    ctx.fillRect(20, 18, 170, 34);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 20px Georgia";
+    ctx.fillText(`Time: ${remaining}s`, 30, 42);
+  };
+  drawTimer();
 
   const overlay = screen.data.overlay;
   if (overlay) {
     const step = overlay.steps[overlay.index];
     ctx.drawImage(images[step.imgKey], 0, 0, WIDTH, HEIGHT);
+    drawTimer();
     if (elapsed - overlay.startedAt >= step.duration) {
       overlay.index += 1;
       overlay.startedAt = elapsed;
