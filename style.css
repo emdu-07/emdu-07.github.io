@@ -68,7 +68,9 @@ body{
   position: absolute;
   inset: 22px 22px auto 22px; /* top block */
   height: 300px;
-  border-radius: 2px;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 0;
 }
 
 /* white content panel */
@@ -78,7 +80,8 @@ body{
   right: 10px;
   bottom: 10px;
   padding: 22px 22px 20px;
-  background: rgba(255,255,255,.95);
+  background: #ffffff;
+  z-index: 1;
 }
 
 .card-body h2{

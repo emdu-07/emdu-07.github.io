@@ -21,7 +21,7 @@ body {
 .home-link {
   position: fixed;
   top: 16px;
-  left: 16px;
+  right: 16px;
   z-index: 10;
   padding: 14px 44px;
   border-radius: 999px;

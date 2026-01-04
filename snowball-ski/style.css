@@ -22,7 +22,7 @@ body {
 .home-link {
   position: fixed;
   top: 16px;
-  left: 16px;
+  right: 16px;
   z-index: 20;
   padding: 14px 44px;
   border-radius: 999px;
@@ -125,7 +125,6 @@ body {
   text-align: center;
 }
 
-
 .btn {
   font-family: "DynaPuff", cursive;
   font-weight: 700;
@@ -212,9 +211,11 @@ body {
 .game-shell {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #cfe8f6;
+  gap: 18px;
 }
 
 #game-canvas {
@@ -227,7 +228,8 @@ body {
 }
 
 .game-meta {
-  padding: 18px 32px 32px;
+  padding: 0 32px 32px;
+  text-align: center;
 }
 
 .game-meta h3 {

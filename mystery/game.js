@@ -197,8 +197,6 @@ const bibliographyLines = [
   "Images:",
   "Fire Stairs: Nelson Ndongala, Unsplash,",
   "https://unsplash.com/photos/AuBmgZWdzy8",
-  "Hotel: Betty Langley's Hotel,",
-  "https://www.battylangleys.com/rooms/superior-double",
   "Book PNG Images Open Book PNG Design, ppt-backgrounds.net",
   "https://www.ppt-backgrounds.net/macbeth/7210-book-png-images-open-book-png-design-image-backgrounds.html",
   "Dialog box Video game Dialogue, pngwing.com",
@@ -353,7 +351,7 @@ function renderMenu() {
 
 function renderInstructions() {
   ctx.drawImage(images.bookPage, 0, 0, WIDTH, HEIGHT);
-  ctx.font = "bold 32px Georgia";
+  ctx.font = "bold 22px Georgia";
   ctx.fillStyle = "#000000";
   ctx.fillText("Instructions", 295, 110);
   drawLines(instructionsLines, 120, 148, 25, "24px Georgia", "#000000");
