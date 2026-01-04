@@ -21,7 +21,7 @@ const imageFiles = {
   no: "no.png",
   menuBg: "menu_bg.png",
   bookPage: "bookpage.png",
-  hotelBg: "hotelbg.png",
+  hotelBg: "hotelbg.jpg",
   gameBg: "playBg.jpg",
   backgroundInfo: "BgInfo.png",
   clientList: "NotebookClue.png",
@@ -327,13 +327,12 @@ function handlePointer(evt) {
 
 function renderTitleScreen() {
   ctx.drawImage(images.hotelBg, 0, 0, WIDTH, HEIGHT);
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = "#5e4a4aff";
   ctx.font = "bold 32px Courier New";
-  ctx.fillText("The Chilling Case of Scott Maguire", 100, 80);
+  ctx.textAlign = "center";
+  ctx.fillText("The Chilling Case of Scott Maguire", WIDTH / 2, 80);
+  ctx.textAlign = "left";
   ctx.font = "20px Courier New";
-  ctx.fillText("Emma Du and Prisha Bhatia", 100, 120);
-  ctx.fillText("January 5th, 2022", 100, 155);
-  ctx.fillText("ICS2O7", 100, 190);
 
   addImageButton("start", 75, 275, 0.6, () => setScreen("animation"));
   addImageButton("exit", 420, 275, 0.6, () => setScreen("bibliography", { returnTo: "title" }));
