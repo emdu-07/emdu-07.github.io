@@ -19,6 +19,24 @@ body {
   background: #cfe8f6;
 }
 
+.home-link {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 20;
+  padding: 14px 44px;
+  border-radius: 999px;
+  background: rgba(106, 173, 221, 0.85);
+  border: 1px solid rgba(241, 231, 220, 0.35);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+.home-link:hover {
+  background: rgba(79, 123, 149, 0.9);
+}
+
 .page {
   min-height: 100vh;
 }
