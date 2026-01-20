@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emma Du — Personal Projects</title>
+    <link rel="stylesheet" href="style.css?v=3" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&display=swap">
+  </head>
+
+  <body>
+    <header class="hero">
+      <div class="name-tag">Emma Du</div>
+    </header>
+
+    <main class="wrap">
+      <h1 class="hero-title">Personal Projects</h1>
+      <section class="grid">
+        <a class="card" href="snowball-ski/" rel="noreferrer">
+          <div class="card-accent accent-yellow"></div>
+          <div class="card-body">
+            <h2>Snowball Ski</h2>
+            <p>
+              Platformer game - Dodge hazards, collect snowpiles, and roll the biggest snowball you can!
+            </p>
+          </div>
+        </a>
+
+        <a class="card" href="mystery/" rel="noreferrer">
+          <div class="card-accent accent-pink"></div>
+          <div class="card-body">
+            <h2>The Chilling Case of Scott Maguire</h2>
+            <p>
+              Detective case game - Collect clues, review alibis, and crack the case.
+            </p>
+          </div>
+        </a>
+
+        <a class="card" href="#" target="_blank" rel="noreferrer">
+          <div class="card-accent accent-purple"></div>
+          <div class="card-body">
+            <h2>Bilbo the Butler</h2>
+            <p>
+              An AI assistant to manage my calendar, reminders, and to-dos
+            </p>
+          </div>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="year"></span> Emma Du</p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

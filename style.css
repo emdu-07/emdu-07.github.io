@@ -1,0 +1,127 @@
+:root{
+  --bg: #ffffff;            /* white background */
+  --text: #1d5c9c;          /* slate/blue text */
+  --title: #567eac;         /* softer header title */
+  --shadow: 0 1px 30px rgba(0,0,0,.08);
+  --card-border: rgba(255,255,255,.9);
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family: "Raleway", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+.hero{
+  background: #3358c8;
+  padding: 28px 24px;
+}
+
+.name-tag{
+  text-align: center;
+  font-size: clamp(26px, 3.4vw, 46px);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: .3px;
+}
+
+.hero-title{
+  margin: 8px 0 26px;
+  text-align: center;
+  font-size: clamp(22px, 2.6vw, 38px);
+  font-weight: 500;
+  color: var(--title);
+  letter-spacing: .5px;
+}
+
+.wrap{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 38px 12px 60px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.card{
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(180deg, #cbe1f6 0%, #ffffff 100%) border-box,
+    #e6ecff padding-box;
+  background-clip: border-box, padding-box;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.card-accent{
+  position: absolute;
+  inset: 22px 22px auto 22px; /* top block */
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* white content panel */
+.card-body{
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  padding: 22px 22px 20px;
+  background: #ffffff;
+  z-index: 1;
+}
+
+.card-body h2{
+  margin: 0 0 10px;
+  font-size: clamp(20px, 2.1vw, 32px);
+  font-weight: 400;
+  color: #4e6f93;
+}
+
+.card-body p{
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.35;
+  color: #4e6f93;
+}
+
+.accent-yellow{
+  background:
+    url("images/fallingSnow.gif") center / cover no-repeat,
+    linear-gradient(160deg, #7fb6e8 0%, #d8f0ff 100%);
+}
+.accent-pink{
+  background: url("images/chillingcase.jpg") center / cover no-repeat;
+}
+.accent-purple{ background: #bdb3e6; }
+
+/* hover */
+.card:hover{
+  transform: translateY(-2px);
+  transition: transform .15s ease;
+}
+
+/* responsive */
+@media (max-width: 820px){
+  .grid{ grid-template-columns: 1fr; }
+  .hero{ padding: 22px 20px; }
+}
+
+.footer{
+  text-align: center;
+  padding: 18px 0 26px;
+  color: rgba(47,79,111,.85);
+}

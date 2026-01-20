@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snowball Ski</title>
+    <link rel="stylesheet" href="style.css?v=2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="page">
+      <a class="home-link" href="../">Go back to homepage</a>
+      <header class="topbar">
+        <div class="brand">Y &amp; E Studio</div>
+        <div class="title-block">
+          <p class="eyebrow">Arcade Sprint</p>
+          <h1>Snowball Ski</h1>
+        </div>
+        <div class="chip">60 Seconds</div>
+      </header>
+
+      <main class="stage">
+        <section class="screen menu active" data-screen="menu">
+          <div class="menu-hero">
+            <div class="menu-content">
+              <h2>Snowball Ski Race!</h2>
+              <div class="cta-row">
+                <button class="btn primary" data-action="start">Play</button>
+                <button class="btn ghost" data-action="instr-1">Instructions</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen instr" data-screen="instr-1">
+          <h2>Instructions Pt. 1</h2>
+          <div class="instr-grid">
+            <div class="instr-card">
+              <img src="imgs/instr0.png" alt="Timer" />
+              <p>You have 60 seconds to make your snowball as big as you can.</p>
+            </div>
+            <div class="instr-card">
+              <img src="imgs/instr1.png" alt="Arrow keys" />
+              <p>Use the arrow keys (or WASD) to steer. Press P to pause/resume.</p>
+            </div>
+            <div class="instr-card">
+              <img src="imgs/snowhill.png" alt="Snow pile" />
+              <p>Roll over snowpiles to collect points.</p>
+            </div>
+            <div class="instr-card">
+              <img src="imgs/instr3.png" alt="Ice" />
+              <p>Ice makes you go faster (and points stop ticking).</p>
+            </div>
+          </div>
+          <div class="nav-row">
+            <button class="btn ghost" data-action="menu">Menu</button>
+            <button class="btn primary" data-action="instr-2">Next</button>
+          </div>
+        </section>
+
+        <section class="screen instr" data-screen="instr-2">
+          <h2>Instructions Pt. 2</h2>
+          <div class="instr-grid two">
+            <div class="instr-card">
+              <img src="imgs/instr4.png" alt="Rival snowball" />
+              <p>Smaller snowballs add score. Bigger ones splat you.</p>
+            </div>
+            <div class="instr-card">
+              <img src="imgs/instr5.png" alt="Tree and rock" />
+              <p>Avoid trees and rocks.</p>
+            </div>
+            <div class="instr-card">
+              <img src="imgs/snowmobile.png" alt="Snowmobile" />
+              <p>Snowmobiles can run you over.</p>
+            </div>
+            <div class="instr-card">
+              <img src="imgs/warning.gif" alt="Warning sign" />
+              <p>Warning sign means a snowmobile is incoming.</p>
+            </div>
+          </div>
+          <div class="nav-row">
+            <button class="btn ghost" data-action="instr-1">Back</button>
+            <button class="btn ghost" data-action="menu">Menu</button>
+          </div>
+        </section>
+
+        <section class="screen game" data-screen="game">
+          <div class="game-shell">
+            <canvas id="game-canvas" width="740" height="740"></canvas>
+          <div class="game-meta">
+            <h3>Controls</h3>
+            <p>Arrows or WASD to move. Press P to pause/resume.</p>
+          </div>
+          </div>
+        </section>
+
+        <section class="screen end" data-screen="end">
+          <div class="end-card">
+            <div class="end-image" role="presentation"></div>
+            <div class="end-details">
+              <h2 id="end-title">You Won!</h2>
+              <p id="end-score">Your Score: 0</p>
+              <div class="cta-row">
+                <button class="btn primary" data-action="restart">Play Again</button>
+                <button class="btn ghost" data-action="menu">Menu</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
