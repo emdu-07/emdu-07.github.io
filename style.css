@@ -34,6 +34,10 @@ body{
   text-decoration: underline;
 }
 
+.hero-link--val{
+  right: 130px;
+}
+
 .hero-icon{
   width: 48px;
   height: 48px;
