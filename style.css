@@ -143,7 +143,11 @@ body{
     url("mystery/mysterypreview.gif") center / cover no-repeat,
     linear-gradient(160deg, #f3b6d2 0%, #ffe6f2 100%);
 }
-.accent-purple{ background: #bdb3e6; }
+.accent-purple{
+  background:
+    url("images/bilbopreview-wide.png") center / cover no-repeat,
+    #bdb3e6;
+}
 
 /* hover */
 .card:hover{
