@@ -36,6 +36,14 @@ body{
   letter-spacing: .5px;
 }
 
+.about{
+  text-align: center;
+}
+
+.about p{
+  font-size: 20px;
+}
+
 .wrap{
   max-width: 1100px;
   margin: 0 auto;
@@ -104,7 +112,9 @@ body{
     linear-gradient(160deg, #7fb6e8 0%, #d8f0ff 100%);
 }
 .accent-pink{
-  background: url("images/chillingcase.jpg") center / cover no-repeat;
+  background:
+    url("mystery/mysterypreview.gif") center / cover no-repeat,
+    linear-gradient(160deg, #f3b6d2 0%, #ffe6f2 100%);
 }
 .accent-purple{ background: #bdb3e6; }
 
