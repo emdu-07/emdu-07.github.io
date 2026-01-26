@@ -25,17 +25,19 @@ body{
   top: 50%;
   right: 60px;
   transform: translateY(-50%);
-  font-family: "Raleway", sans-serif;
-  font-size: 24px;
-  font-weight: 300;
-  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: .6px;
-  text-transform: uppercase;
 }
 
 .hero-link:hover{
   text-decoration: underline;
+}
+
+.hero-icon{
+  width: 48px;
+  height: 48px;
+  display: block;
 }
 
 .name-tag{
