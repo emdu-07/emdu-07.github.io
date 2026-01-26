@@ -193,14 +193,14 @@ const backstoryPages = [
 
 const bibliographyLines = [
   "Music:",
-  "Defekt Maschine, Pixabay, https://pixabay.com/music/ambient-suspense-dark-ambient-8413/",
+  "Defekt Maschine, Pixabay, https://pixabay.com/music/ambient-",
+  "suspense-dark-ambient-8413/",
   "Images:",
   "Fire Stairs: Nelson Ndongala, Unsplash,",
   "https://unsplash.com/photos/AuBmgZWdzy8",
   "Book PNG Images Open Book PNG Design, ppt-backgrounds.net",
-  "https://www.ppt-backgrounds.net/macbeth/7210-book-png-images-open-book-png-design-image-backgrounds.html",
-  "Dialog box Video game Dialogue, pngwing.com",
-  "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Ffree-png-kelsv&psig=AOvVaw3YYJyt9P4vZjRSpttj33Qd&ust=1642721239429000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCOCB_9H7vvUCFQAAAAAdAAAAABAD"
+  "https://www.ppt-backgrounds.net/macbeth/7210-book-png-images",
+  "-open-book-png-design-image-backgrounds.html",
 ];
 
 const gameState = {
@@ -355,18 +355,28 @@ function renderInstructions() {
   ctx.fillStyle = "#000000";
   ctx.fillText("Instructions", 295, 110);
   drawLines(instructionsLines, 120, 148, 25, "24px Georgia", "#000000");
-  addImageButton("returnButton", 480, 425, 0.4, () => setScreen("menu"));
+  addImageButton("returnButton", 550, 425, 0.4, () => setScreen("menu"));
 }
 
 function renderBackstory(pageIndex) {
   const page = backstoryPages[pageIndex];
+  const textFont = "18px Georgia";
+  const lineHeight = 26;
+  const textX = 110;
+  const textY = 130;
+  const maxWidth = 560;
+  const textCenterX = textX + maxWidth / 2;
+  const wrappedLines = page.lines.flatMap((line) => wrapText(line, textFont, maxWidth));
+
   ctx.drawImage(images.bookPage, 0, 0, WIDTH, HEIGHT);
   ctx.font = "bold 32px Georgia";
   ctx.fillStyle = "#000000";
   ctx.fillText(page.title, 295, 95);
-  drawLines(page.lines, 105, 128, 25, "24px Georgia", "#000000");
+  ctx.textAlign = "center";
+  drawLines(wrappedLines, textCenterX, textY, lineHeight, textFont, "#000000");
+  ctx.textAlign = "left";
 
-  addImageButton("returnButton", 510, 5, 0.35, () => setScreen("menu"));
+  addImageButton("returnButton", 580, 5, 0.35, () => setScreen("menu"));
   if (pageIndex < backstoryPages.length - 1) {
     addImageButton("nextPage", 480, 425, 0.4, () => setScreen("backstory", { pageIndex: pageIndex + 1 }));
   }
@@ -393,8 +403,8 @@ function renderQuiz(questionIndex) {
   ctx.drawImage(images.bookPage, 0, 0, WIDTH, HEIGHT);
   const questionFont = "bold 24px Georgia";
   const optionFont = "22px Georgia";
-  const maxWidth = 620;
-  const startX = 110;
+  const maxWidth = 560;
+  const startX = 120;
   let startY = 120;
 
   const [questionText, options] = questions[questionIndex];
@@ -429,7 +439,7 @@ function renderQuizResult() {
   ctx.fillText("Results:", 300, 140);
   ctx.font = "30px Georgia";
   ctx.fillText(`You scored ${gameState.quizScore}/8 on this quiz.`, 200, 220);
-  addImageButton("returnButton", 510, 5, 0.35, () => setScreen("menu"));
+  addImageButton("returnButton", 580, 5, 0.35, () => setScreen("menu"));
 }
 
 function renderAnimation(elapsed) {
@@ -439,9 +449,9 @@ function renderAnimation(elapsed) {
   if (elapsed < animationDuration) {
     const frameIndex = Math.floor(elapsed / frameDuration);
     ctx.drawImage(animationFrames[frameIndex], 0, 0, WIDTH, HEIGHT);
-  } else if (elapsed < animationDuration + 2) {
+  } else if (elapsed < animationDuration + 1) {
     ctx.drawImage(animationFrames[animationFrames.length - 1], 0, 0, WIDTH, HEIGHT);
-  } else if (elapsed < animationDuration + 4) {
+  } else if (elapsed < animationDuration + 2.5) {
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
   } else {
@@ -597,7 +607,7 @@ function showEnding(suspect) {
 function renderEnding() {
   const endingKey = screen.data.endingKey;
   ctx.drawImage(images[endingKey], 0, 0, WIDTH, HEIGHT);
-  addImageButton("returnButton", 510, 5, 0.35, () => setScreen("menu"));
+  addImageButton("returnButton", 580, 5, 0.35, () => setScreen("menu"));
   if (performance.now() >= screen.data.returnAt) {
     setScreen("menu");
   }
@@ -624,7 +634,7 @@ function renderBibliography(elapsed) {
       y += 40;
     }
   }
-  addImageButton("returnButton", 510, 5, 0.35, () => setScreen(screen.data.returnTo || "title"));
+  addImageButton("returnButton", 580, 5, 0.35, () => setScreen(screen.data.returnTo || "title"));
   if (elapsed >= 5) {
     setScreen(screen.data.returnTo || "title");
   }
