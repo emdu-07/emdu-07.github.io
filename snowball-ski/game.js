@@ -15,10 +15,7 @@
   const images = {};
   const sources = {
     hillTop: "imgs/hillTop.png",
-    hill1: "imgs/hill1.jpeg",
-    hill2: "imgs/hill2.jpeg",
-    hill3: "imgs/hill3.jpeg",
-    hill4: "imgs/hill4.jpeg",
+    hillBg: "imgs/hillBg.png",
     snowball1: "imgs/snowball1.png",
     snowball2: "imgs/snowball2.png",
     snowball3: "imgs/snowball3.png",
@@ -43,6 +40,7 @@
     timeLeft: 60,
     topY: 0,
     hillY: 0,
+    hillBgStatic: false,
     sX: 200,
     sY: 200,
     sW: 40,
@@ -54,7 +52,6 @@
     startTime: 0,
     endTime: 0,
     sfNum: 1,
-    bgfNum: 1,
     obstacles: [],
     snowPiles: [],
     ices: [],
@@ -73,7 +70,6 @@
     rivalSize: 0,
   };
 
-  const bgFrames = () => [images.hill1, images.hill2, images.hill3, images.hill4];
   const snowballFrames = () => [
     images.snowball1,
     images.snowball2,
@@ -146,6 +142,21 @@
   const collides = (x1, y1, w1, h1, x2, y2, w2, h2) =>
     x1 > x2 - w1 && x1 < x2 + w2 && y1 < y2 + h1 && y1 > y2 - h2;
 
+  const handleHeldMovement = () => {
+    if (keys.has("ArrowLeft") || keys.has("a")) {
+      handleMove("ArrowLeft");
+    }
+    if (keys.has("ArrowRight") || keys.has("d")) {
+      handleMove("ArrowRight");
+    }
+    if (keys.has("ArrowUp") || keys.has("w")) {
+      handleMove("ArrowUp");
+    }
+    if (keys.has("ArrowDown") || keys.has("s")) {
+      handleMove("ArrowDown");
+    }
+  };
+
   const touchingIce = () =>
     game.ices.some((ice) => {
       const withinX =
@@ -165,6 +176,7 @@
     game.timeLeft = 60;
     game.topY = 0;
     game.hillY = 0;
+    game.hillBgStatic = false;
     game.sX = 200;
     game.sY = 200;
     game.tickInterval = 100;
@@ -173,7 +185,6 @@
     game.startTime = performance.now();
     game.endTime = 0;
     game.sfNum = 1;
-    game.bgfNum = 1;
     game.obstacles = [];
     game.snowPiles = [];
     game.ices = [];
@@ -217,13 +228,18 @@
       }
     }
 
+    handleHeldMovement();
+
     game.topY -= 10;
     if (game.topY > -HEIGHT) {
       game.hillY = game.topY + 350;
     } else {
       game.hillY = 0;
     }
-    game.bgfNum = (game.bgfNum + 1) % 4;
+    if (!game.hillBgStatic && game.topY + HEIGHT <= 400) {
+      game.hillBgStatic = true;
+      game.hillY = 0;
+    }
     game.sfNum = (game.sfNum + 1) % snowballFrames().length;
 
     if (Math.random() < 0.33) {
@@ -235,7 +251,7 @@
       if (collides(game.sX, game.sY, game.sW, game.sH, obs.x, obs.y, obs.w, obs.h)) {
         game.lose = true;
       }
-      return obs.y >= 0;
+      return obs.y + obs.h >= 0;
     });
 
     for (let i = 0; i < game.snowPiles.length; ) {
@@ -250,7 +266,7 @@
         game.score += pile.value;
         game.snowPiles.splice(i, 1);
         loadSnowPile();
-      } else if (pile.y < 0) {
+      } else if (pile.y + 45 < 0) {
         game.snowPiles.splice(i, 1);
         loadSnowPile();
       } else {
@@ -304,7 +320,7 @@
         game.rivalSize = rand(4, 8) * 9;
       } else if (now - game.startTime - game.rivalSnowballStartTime >= 4000) {
         game.rivalY -= 10;
-        if (game.rivalY < -game.rivalSize) {
+        if (game.rivalY + game.rivalSize < 0) {
           game.rivalSnowball = false;
           game.rivalX = rand(0, 701);
           game.rivalY = 0;
@@ -341,7 +357,7 @@
         game.lose = true;
       }
 
-      if (game.snowmobileX < -20) {
+      if (game.snowmobileX + 50 < 0) {
         game.snowmobile = false;
       }
     }
@@ -355,21 +371,16 @@
   const draw = () => {
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
-    if (game.topY + HEIGHT > 0) {
-      ctx.fillStyle = "#bef0ff";
-      ctx.fillRect(0, 0, WIDTH, 400);
-      const bgImg = bgFrames()[game.bgfNum];
-      if (bgImg) {
-        ctx.drawImage(bgImg, 0, game.hillY + 710, WIDTH, HEIGHT);
-      }
+    ctx.fillStyle = "#bef0ff";
+    ctx.fillRect(0, 0, WIDTH, 400);
+
+    if (images.hillBg) {
+      const hillBgY = game.hillBgStatic ? 0 : game.hillY;
+      ctx.drawImage(images.hillBg, 0, hillBgY, WIDTH, HEIGHT);
     }
 
-    if (images.hillTop) {
+    if (images.hillTop && game.topY + HEIGHT > 0) {
       ctx.drawImage(images.hillTop, 0, game.topY, WIDTH, HEIGHT);
-    }
-    const hillImg = bgFrames()[game.bgfNum];
-    if (hillImg) {
-      ctx.drawImage(hillImg, 0, game.hillY, WIDTH, HEIGHT);
     }
 
     ctx.fillStyle = "#ccffff";
@@ -382,7 +393,7 @@
         ctx.drawImage(images.snowhill, pile.x, pile.y, 75, 45);
       }
       ctx.fillStyle = "#1c6bd6";
-      ctx.font = '20px "Chivo Mono"';
+      ctx.font = '15px sans-serif';
       ctx.fillText(String(pile.value), pile.x + 30, pile.y - 5);
     });
 
@@ -468,7 +479,7 @@
       }
       draw();
 
-      if (game.ended && game.endTime && timestamp - game.endTime >= 3000) {
+      if (game.ended && game.endTime && timestamp - game.endTime >= 1500) {
         endTitle.textContent = game.lose ? "You Lost" : "You Won";
         endScore.textContent = `Your Score: ${game.score}`;
         endImage.style.backgroundImage = `url("imgs/${game.lose ? "youLost" : "youWon"}.png")`;
@@ -484,13 +495,13 @@
       return;
     }
     if (key === "ArrowLeft" || key === "a") {
-      if (game.sX > 0) game.sX -= 20;
+      if (game.sX > 0) game.sX -= 10;
     } else if (key === "ArrowRight" || key === "d") {
-      if (game.sX < 700) game.sX += 20;
+      if (game.sX < 700) game.sX += 10;
     } else if (key === "ArrowUp" || key === "w") {
-      if (game.sY > 0) game.sY -= 20;
+      if (game.sY > 0) game.sY -= 10;
     } else if (key === "ArrowDown" || key === "s") {
-      if (game.sY < 680) game.sY += 20;
+      if (game.sY < 680) game.sY += 10;
     }
   };
 
