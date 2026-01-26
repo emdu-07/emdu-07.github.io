@@ -100,7 +100,7 @@ body{
 
 .accent-yellow{
   background:
-    url("images/fallingSnow.gif") center / cover no-repeat,
+    url("snowball-ski/imgs/gamepreview.gif") center / cover no-repeat,
     linear-gradient(160deg, #7fb6e8 0%, #d8f0ff 100%);
 }
 .accent-pink{
