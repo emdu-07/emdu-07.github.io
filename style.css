@@ -46,9 +46,9 @@ body{
 
 .name-tag{
   text-align: center;
-  font-family: "Kaisei HarunoUmi", serif;
+  font-family: "SUSE", sans-serif;
   font-size: clamp(26px, 3.4vw, 46px);
-  font-weight: 400;
+  font-weight: 110;
   color: #ffffff;
   letter-spacing: .3px;
 }
