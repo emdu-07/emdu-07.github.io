@@ -7,7 +7,6 @@
   --hero-end: #8f7bb7;
   --accent: #d6b36a;
   --shadow: 0 24px 60px rgba(58, 42, 81, 0.14);
-  --content-width: min(100%, 980px);
 }
 
 *{
@@ -86,7 +85,7 @@ img{
 }
 
 .hero-shot{
-  width: var(--content-width);
+  max-width: 980px;
   margin: 38px auto 0;
   padding: 14px;
   background: rgba(255,255,255,0.12);
@@ -107,13 +106,13 @@ img{
 }
 
 .story{
-  width: var(--content-width);
+  max-width: 860px;
   margin: 0 auto;
 }
 
 .copy,
 .closing-copy{
-  width: 100%;
+  width: min(100%, 72ch);
   margin-left: auto;
   margin-right: auto;
 }
@@ -176,7 +175,7 @@ img{
   margin-top: 24px;
   padding: 12px 18px;
   border-radius: 999px;
-  background: #56446f;
+  background: #5445b0;
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
@@ -187,7 +186,7 @@ img{
 }
 
 .button:hover{
-  background: #46375d;
+  background: #3b2e90;
 }
 
 @media (max-width: 860px){
