@@ -102,7 +102,7 @@ img{
 
 .page{
   width: min(1120px, calc(100% - 32px));
-  margin: -28px auto 60px;
+  margin: 36px auto 60px;
 }
 
 .story{
@@ -180,6 +180,6 @@ img{
 
   .page{
     width: min(1120px, calc(100% - 20px));
-    margin-top: -18px;
+    margin-top: 28px;
   }
 }
