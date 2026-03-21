@@ -112,7 +112,7 @@ img{
 
 .copy,
 .closing-copy{
-  width: min(100%, 88ch);
+  width: min(100%, 100ch);
   margin-left: auto;
   margin-right: auto;
 }
