@@ -156,6 +156,7 @@ img{
   font-size: 16px;
   font-style: italic;
   color: #5f5d68;
+  text-align: center;
 }
 
 .button{
@@ -167,6 +168,10 @@ img{
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
+}
+
+.copy:last-child{
+  text-align: center;
 }
 
 .button:hover{
