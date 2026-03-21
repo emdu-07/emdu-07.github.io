@@ -30,75 +30,41 @@
     </header>
 
     <main class="page">
-      <section class="intro-grid">
-        <article class="panel panel-strong">
-          <p class="panel-label">Project Overview</p>
-          <h2>What it does</h2>
+      <section class="story">
+        <article class="copy">
           <p>
-            Bilbo is designed to act like a personal household assistant. It stores useful memories,
-            keeps conversational context over time, and is built to help with daily planning, reminders,
-            and recurring life logistics.
+            I found it difficult to keep up with reminders, calendar updates, and to-do lists across the different apps I was already using, so I built an AI assistant that could manage everything from one place. I’ll be going through how I built Bilbo on Val Town with a simple base: an SQLite table for memory and a couple of cron jobs to retain past notes, fetch updates, and send daily briefings. I wanted the project to feel playful, so I gave the assistant a cat-butler persona and design, and named them Bilbo*.
+          </p>
+
+          <h2>Meet the Butler</h2>
+          <p>
+            Every morning, Bilbo sends me a briefing through a Discord channel with my reminders, the day’s weather forecast, a fun fact, and my calendar schedule. I can also message Bilbo throughout the day, to update my calendar, leave notes, or ask questions. In keeping with my idea, all of Bilbo’s replies are polished, formal, and cat-themed.
           </p>
         </article>
 
-        <article class="panel">
-          <p class="panel-label">Current Interface</p>
-          <h2>Discord-first workflow</h2>
+        <figure class="media">
+          <img src="../images/bilbopreview-wide.png" alt="A sample daily brief on Discord" />
+          <figcaption>A sample daily brief on Discord</figcaption>
+        </figure>
+
+        <article class="copy">
+          <h2>Behind the Scenes</h2>
           <p>
-            The current implementation handles Discord messages, verifies incoming interactions, stores chat
-            history, and replies in a polished butler voice while extracting information worth remembering.
+            The project is hosted on Val.town, a great fit thanks to its built-in SQLite storage, HTTP request handling, and scheduled cron jobs. Bilbo keeps track of information through their notebook backed by SQLite. This table acts as Bilbo’s memory store: each entry is saved as a log item and can be tagged, dated, or left undated depending on whether it’s a reminder or background information.
           </p>
         </article>
-      </section>
 
-      <section class="stack">
-        <div class="section-heading">
-          <p class="panel-label">Key Pieces</p>
-          <h2>How the project is structured</h2>
-        </div>
+        <figure class="media media-small">
+          <img src="../images/bilbopreview.png" alt="The notebook interface and some of the entries fed into the morning brief" />
+          <figcaption>This is the notebook interface and some of the entries fed into the morning brief.</figcaption>
+        </figure>
 
-        <div class="feature-grid">
-          <article class="feature-card">
-            <h3>Conversation Memory</h3>
-            <p>
-              Bilbo can create, edit, and delete stored memories so future replies can use details from prior conversations.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <h3>Calendar and Planning</h3>
-            <p>
-              The project is set up around day-to-day assistance, including calendar events, reminders, and brief-style summaries.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <h3>Dashboard Backend</h3>
-            <p>
-              A Hono backend exposes memory APIs, making it possible to manage the assistant&apos;s stored context outside the chat flow.
-            </p>
-          </article>
-
-          <article class="feature-card">
-            <h3>Weather Importing</h3>
-            <p>
-              Weather data can be summarized and stored as memory entries so Bilbo can factor that into daily planning.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="showcase">
-        <article class="panel panel-image">
-          <img src="../images/bilbopreview.png" alt="Bilbo interface preview" />
-        </article>
-
-        <article class="panel">
-          <p class="panel-label">Design Goal</p>
-          <h2>Less assistant dashboard, more digital household staff</h2>
+        <article class="copy">
           <p>
-            The project leans into personality on purpose. Instead of presenting Bilbo as a generic productivity
-            tool, the goal is to make everyday planning feel a little more conversational, ambient, and alive.
+            The daily briefing is assembled through a chain of scheduled cron jobs. One cron job fetches the weather via an HTTP request to wttr.in, another calls the Claude API to generate fun facts for the week, and another queries the relevant SQLite entries before packaging everything as a Discord text.
+          </p>
+          <p class="footnote">
+            *there&apos;s no significance to “Bilbo”, I just thought it&apos;d be a silly name for a butler.
           </p>
           <a class="button" href="../">Back to projects</a>
         </article>
