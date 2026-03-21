@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bilbo the Butler</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=SUSE:wght@200;300;400;500;600&display=swap">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topbar">
+        <a class="nav-link" href="../">Home</a>
+        <a class="nav-link" href="https://github.com/emdu-07" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+
+      <div class="hero-copy">
+        <p class="eyebrow">AI Personal Assistant</p>
+        <h1>Bilbo the Butler</h1>
+        <p class="lede">
+          A butler-style assistant that keeps track of personal context, remembers important details,
+          and responds through chat with a calmer, more human interface than a standard bot.
+        </p>
+      </div>
+
+      <div class="hero-shot">
+        <img src="../images/bilbopreview-wide.png" alt="Bilbo the Butler preview" />
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="intro-grid">
+        <article class="panel panel-strong">
+          <p class="panel-label">Project Overview</p>
+          <h2>What it does</h2>
+          <p>
+            Bilbo is designed to act like a personal household assistant. It stores useful memories,
+            keeps conversational context over time, and is built to help with daily planning, reminders,
+            and recurring life logistics.
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="panel-label">Current Interface</p>
+          <h2>Discord-first workflow</h2>
+          <p>
+            The current implementation handles Discord messages, verifies incoming interactions, stores chat
+            history, and replies in a polished butler voice while extracting information worth remembering.
+          </p>
+        </article>
+      </section>
+
+      <section class="stack">
+        <div class="section-heading">
+          <p class="panel-label">Key Pieces</p>
+          <h2>How the project is structured</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Conversation Memory</h3>
+            <p>
+              Bilbo can create, edit, and delete stored memories so future replies can use details from prior conversations.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Calendar and Planning</h3>
+            <p>
+              The project is set up around day-to-day assistance, including calendar events, reminders, and brief-style summaries.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Dashboard Backend</h3>
+            <p>
+              A Hono backend exposes memory APIs, making it possible to manage the assistant&apos;s stored context outside the chat flow.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Weather Importing</h3>
+            <p>
+              Weather data can be summarized and stored as memory entries so Bilbo can factor that into daily planning.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="showcase">
+        <article class="panel panel-image">
+          <img src="../images/bilbopreview.png" alt="Bilbo interface preview" />
+        </article>
+
+        <article class="panel">
+          <p class="panel-label">Design Goal</p>
+          <h2>Less assistant dashboard, more digital household staff</h2>
+          <p>
+            The project leans into personality on purpose. Instead of presenting Bilbo as a generic productivity
+            tool, the goal is to make everyday planning feel a little more conversational, ambient, and alive.
+          </p>
+          <a class="button" href="../">Back to projects</a>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
