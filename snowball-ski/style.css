@@ -38,6 +38,15 @@ body {
   background: rgba(79, 123, 149, 0.9);
 }
 
+@media (max-width: 520px) {
+  .home-link {
+    width: min(calc(100vw - 32px), 320px);
+    padding: 14px 24px;
+    text-align: center;
+    font-size: clamp(1.1rem, 5vw, 1.6rem);
+  }
+}
+
 .page {
   min-height: 100vh;
 }
