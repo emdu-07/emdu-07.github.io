@@ -43,8 +43,14 @@ body {
     padding-top: 16px;
   }
 
+  .page {
+    display: flex;
+    flex-direction: column;
+  }
+
   .home-link {
     position: static;
+    display: block;
     width: fit-content;
     max-width: calc(100vw - 32px);
     margin: 0 auto 16px;

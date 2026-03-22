@@ -39,12 +39,15 @@ body {
 
 @media (max-width: 734px) {
   body {
+    flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
     padding-top: 16px;
   }
 
   .home-link {
     position: static;
+    display: block;
     width: fit-content;
     max-width: calc(100vw - 32px);
     margin: 0 auto 16px;
@@ -52,6 +55,10 @@ body {
     text-align: center;
     font-size: clamp(1.1rem, 5vw, 1.6rem);
     transform: none;
+  }
+
+  .stage {
+    width: 100%;
   }
 }
 
