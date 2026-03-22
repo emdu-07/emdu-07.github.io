@@ -167,6 +167,28 @@ body{
   .hero{ padding: 22px 20px; }
 }
 
+@media (max-width: 360px){
+  .hero-bar{
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 12px;
+  }
+
+  .hero-links{
+    justify-self: center;
+    padding-right: 0;
+  }
+
+  .name-tag{
+    font-size: clamp(32px, 9vw, 44px);
+  }
+
+  .hero-icon{
+    width: clamp(24px, 8vw, 36px);
+    height: clamp(24px, 8vw, 36px);
+  }
+}
+
 .footer{
   text-align: center;
   padding: 18px 0 26px;
