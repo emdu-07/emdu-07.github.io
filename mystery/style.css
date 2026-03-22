@@ -37,7 +37,7 @@ body {
   background: rgba(30, 26, 26, 0.9);
 }
 
-@media (max-width: 520px) {
+@media (max-width: 734px) {
   .home-link {
     width: min(calc(100vw - 32px), 320px);
     padding: 14px 24px;
