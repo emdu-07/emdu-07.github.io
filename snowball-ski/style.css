@@ -39,12 +39,19 @@ body {
 }
 
 @media (max-width: 734px) {
+  body {
+    padding-top: 16px;
+  }
+
   .home-link {
+    position: static;
     width: fit-content;
     max-width: calc(100vw - 32px);
+    margin: 0 auto 16px;
     padding: 14px 24px;
     text-align: center;
     font-size: clamp(1.1rem, 5vw, 1.6rem);
+    transform: none;
   }
 }
 
