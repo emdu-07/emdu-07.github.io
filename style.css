@@ -15,27 +15,33 @@ body{
 }
 
 .hero{
-  position: relative;
   background: #3358c8;
   padding: 28px 24px;
 }
 
+.hero-bar{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(12px, 3vw, 28px);
+}
+
+.hero-bar-spacer{
+  min-width: 0;
+}
+
+.hero-links{
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(12px, 2.2vw, 22px);
+  padding-right: clamp(4px, 1vw, 12px);
+}
+
 .hero-link{
-  position: absolute;
-  top: 50%;
-  right: 60px;
-  transform: translateY(-50%);
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-}
-
-.hero-link:hover{
-  text-decoration: underline;
-}
-
-.hero-link--val{
-  right: 130px;
 }
 
 .hero-icon{
