@@ -45,8 +45,8 @@ body{
 }
 
 .hero-icon{
-  width: 48px;
-  height: 48px;
+  width: clamp(28px, 6vw, 48px);
+  height: clamp(28px, 6vw, 48px);
   display: block;
 }
 
