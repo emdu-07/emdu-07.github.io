@@ -40,7 +40,8 @@ body {
 
 @media (max-width: 734px) {
   .home-link {
-    width: min(calc(100vw - 32px), 320px);
+    width: fit-content;
+    max-width: calc(100vw - 32px);
     padding: 14px 24px;
     text-align: center;
     font-size: clamp(1.1rem, 5vw, 1.6rem);
