@@ -149,6 +149,9 @@ body{
     url("mystery/mysterypreview.gif") center / cover no-repeat,
     linear-gradient(160deg, #f3b6d2 0%, #ffe6f2 100%);
 }
+.accent-green{
+  background: linear-gradient(160deg, #176b50 0%, #a9d8bb 100%);
+}
 .accent-purple{
   background:
     url("images/bilbopreview-wide.png") center / cover no-repeat,
