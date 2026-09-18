@@ -1,12 +1,12 @@
 :root{
-  --bg: #eaf5f2;
-  --text: #20303d;
-  --muted: #51686f;
-  --line: rgba(36, 87, 66, 0.14);
-  --hero-start: #085f73;
-  --hero-end: #118094;
+  --bg: #eaf7f7;
+  --text: #20494f;
+  --muted: #426b72;
+  --line: rgba(29, 131, 156, 0.16);
+  --hero-start: #1d839c;
+  --hero-end: #208f9f;
   --accent: #6ad6d2;
-  --shadow: 0 24px 60px rgba(26, 66, 49, 0.14);
+  --shadow: 0 24px 60px rgba(26, 79, 89, 0.14);
   --content-width: min(100%, 980px);
 }
 
@@ -19,8 +19,8 @@ body{
   font-family: "Raleway", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(214, 179, 106, 0.18), transparent 28%),
-    linear-gradient(180deg, #f8f5ef 0%, #f2ede6 100%);
+    radial-gradient(circle at top left, rgba(106, 214, 210, 0.14), transparent 28%),
+    linear-gradient(180deg, #f4fbfb 0%, var(--bg) 100%);
 }
 
 img{
@@ -51,7 +51,7 @@ img{
   min-height: 48px;
   padding: 0 20px;
   border-radius: 999px;
-  background: #14553e;
+  background: #0d5869;
   color: rgba(255,255,255,0.92);
   text-decoration: none;
   font-size: 15px;
@@ -61,7 +61,7 @@ img{
 }
 
 .nav-link:hover{
-  background: #0c412e;
+  background: #0a4654;
 }
 
 .nav-icon-link{
