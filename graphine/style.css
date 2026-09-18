@@ -213,6 +213,12 @@ img{
   text-align: center;
 }
 
+.project-actions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .button:hover{
   background: #0c412e;
 }
